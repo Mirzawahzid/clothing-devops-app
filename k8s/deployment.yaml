@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clothing-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: clothing-api
+  template:
+    metadata:
+      labels:
+        app: clothing-api
+    spec:
+      containers:
+      - name: clothing-api
+        image: clothing-api
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
